@@ -3,15 +3,37 @@ package com.nevado.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document(collection = "employees")
 public class Employee {
 
 	@Id
 	private String id;
-
 	private String email;
 	private String fullName;
 	private String managerEmail;
+	private Double sal;
+	//One-toOne
+	private Contact contact;
+	//One-to-Many
+	private List<SkillSet> skillSets;
+
+	public List<SkillSet> getSkillSets() {
+		return skillSets;
+	}
+
+	public void setSkillSets(List<SkillSet> skillSets) {
+		this.skillSets = skillSets;
+	}
+
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
 
 	public Double getSal() {
 		return sal;
@@ -20,8 +42,6 @@ public class Employee {
 	public void setSal(Double sal) {
 		this.sal = sal;
 	}
-
-	private Double sal;
 
 	public String getId() {
 		return id;

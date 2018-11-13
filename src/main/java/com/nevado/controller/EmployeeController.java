@@ -1,5 +1,6 @@
 package com.nevado.controller;
 
+import com.nevado.model.Contact;
 import com.nevado.persistence.EmployeeMongoQueryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -59,4 +60,9 @@ public class EmployeeController {
 	public Double basicsal(@PathVariable Double sal) {
 		return employeeMongoQueryRepo.calcSal(sal);
 	}
+
+//	@RequestMapping(value = "/{empId}/contact", method = RequestMethod.POST)
+//	public Employee saveContactDetails(@PathVariable String empId,@RequestBody Contact contact) {
+//		return employeeRepository.save(employee);
+//	}
 }
